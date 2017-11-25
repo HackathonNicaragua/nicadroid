@@ -1,16 +1,12 @@
 package com.developnic.jjmichael.choose.Fragment_Menu;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.developnic.jjmichael.choose.MainActivity;
 import com.developnic.jjmichael.choose.R;
@@ -21,13 +17,12 @@ public class TestFragment extends android.support.v4.app.Fragment {
     addPreguntas ap = new addPreguntas();
     public ArrayList<structPreguntas> preguntas = ap.listaPreguntas;
     public ArrayList<seguimiento>seguimientos = new ArrayList<>();
+    public ArrayList<structResultados>resultados = new ArrayList<>();
     RadioButton si,no;
     Button atras,sig;
     TextView preg;
     int idp = 0;
     public int ultima=0;
-
-
 
     public TestFragment() {
         // Required empty public constructor
@@ -38,14 +33,14 @@ public class TestFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_test, container, false);
-
+        todoslosres();
         si = vista.findViewById(R.id.si);
         no = vista.findViewById(R.id.no);
         atras = vista.findViewById(R.id.atras);
         sig = vista.findViewById(R.id.sig);
         preg = vista.findViewById(R.id.preg);
 
-        structPreguntas sp= preguntas.get(idp);
+        structPreguntas sp= preguntas.get(ultima);
         preg.setText(sp.idpreg+". "+sp.pregunta);
 
         si.setOnClickListener(new View.OnClickListener() {
@@ -77,9 +72,14 @@ public class TestFragment extends android.support.v4.app.Fragment {
     void sig_click(View v){
         if(si.isChecked()||no.isChecked())if(idp<40) {
             idp++;
+
             structPreguntas sp = preguntas.get(idp);
             preg.setText(sp.idpreg + ". " + sp.pregunta);
             if (idp > ultima) ultima = idp;
+            if(ultima ==39){
+                sig.setText("finalizar");
+
+            }
         }
     }
     void atras_click(View v){
@@ -103,6 +103,24 @@ public class TestFragment extends android.support.v4.app.Fragment {
         s.setSiono(sino);
         seguimientos.add(s);
     }
+    void todoslosres(){
+        structResultados c1,c2,c3,c4,c5;
+        c1 = new structResultados();
+        c2 = new structResultados();
+        c3 = new structResultados();
+        c4 = new structResultados();
+        c5 = new structResultados();
+        c1.setIdcat(1);c1.setNombre("Arte y Creatividad");c1.setPuntaje(0);
+        c2.setIdcat(2);c2.setNombre("Ciencias Sociales");c2.setPuntaje(0);
+        c3.setIdcat(3);c3.setNombre("Economica, Administrativa y financiera");c3.setPuntaje(0);
+        c4.setIdcat(4);c4.setNombre("Ciencias y Tecnologia");c4.setPuntaje(0);
+        c5.setIdcat(5);c5.setNombre("Ciencias ecologicas, biologicas y de Salud");c5.setPuntaje(0);
+        resultados.add(c1);
+        resultados.add(c2);
+        resultados.add(c3);
+        resultados.add(c4);
+        resultados.add(c5);
+    }
 }
 class seguimiento{
     int idp,siono,cat;
@@ -117,7 +135,7 @@ class seguimiento{
     }
 
 }
-class resultados{
+class structResultados{
     int idcat,puntaje;
     String nombre;
 
