@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Choose</string>
+
+    <string name="facebook_app_id">1451602268291573</string>
+    <string name="fb_login_protocol_scheme">fb1451602268291573</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="descrip">michael</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="inicio">Inicio</string>
+    <string name="universidades">Universidad</string>
+    <string name="carreras">Carreras</string>
+    <string name="test">Test</string>
+    <string name="perfil">Perfil</string>
+
+    <string name="girl_ipsum">
+        Morbi posuere lorem nec elit dapibus, vitae accumsan mauris pellentesque.
+        Vestibulum a lobortis mi. Vestibulum lacinia molestie semper. Pellentesque
+        ultrices arcu lacus, interdum mollis nibh convallis ut. Aliquam sagittis
+        sem a lacus gravida, eu accumsan purus volutpat. Donec tempus, est id
+        tristique consectetur, lacus ligula dignissim turpis, cursus commodo turpis
+        libero in purus. Phasellus tempus gravida tempor.
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add">Añadir</string>
+    <string name="action_favorite">Marcar Favorito</string>
+    <string name="title_activity_detail">DetalleCarreras</string>
+    <string name="salud">Salud</string>
+    <string name="tab1_string">Descripcion</string>
+    <string name="tab2_string">Utilidad</string>
+    <string name="tab3_string">Comentarios</string>
+
+</resources>

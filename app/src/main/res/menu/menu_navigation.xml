@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item android:id="@+id/home_page_id"
+      android:title="@string/inicio"
+      android:icon="@drawable/ic_home"
+      />
+
+    <item android:id="@+id/uni_page_id"
+        android:title="@string/universidades"
+        android:icon="@drawable/university"
+        />
+    <item android:id="@+id/car_page_id"
+        android:title="@string/carreras"
+        android:icon="@drawable/mortarboard"
+        />
+    <item android:id="@+id/test_page_id"
+        android:title="@string/test"
+        android:icon="@drawable/exam"
+        />
+
+    <item android:id="@+id/perfil_page_id"
+        android:title="@string/perfil"
+        android:icon="@drawable/student"
+        />
+
+
+</menu>
