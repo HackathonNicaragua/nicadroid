@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsCategorias;
+import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.POJO.Usuarios;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.Auth;
@@ -53,7 +55,31 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void OptenerListaCompleta() {
 
+        progressBar.setVisibility(View.VISIBLE);
+
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        database.getReference("carreras").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Carreras.LIST_COMPLETA.clear();
+                for (DataSnapshot snapshot:
+                        dataSnapshot.getChildren()) {
+                    Carreras car= snapshot.getValue(Carreras.class);
+                    car.setId_carreras(snapshot.getKey());
+                    Carreras.LIST_COMPLETA.add(car);
+                }
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this, "id" + Carreras.LIST_COMPLETA.get(0).getId_carreras(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
+
 
 
     private void GETCONECTION() {
@@ -108,10 +134,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         break;
 
                     case R.id.car_page_id:
-
+                        fragmentTemp = new FragmentsCategorias();
                         break;
-                        case  R.id.perfil_page_id:
-
+                    case  R.id.perfil_page_id:
+                       // fragmentTemp = new PerfilFragment();
                         break;
                 }
 
@@ -140,8 +166,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     String email = user.getEmail();
                     Uri photoUrl = user.getPhotoUrl();
                     String uid = user.getUid();
-
-
 
                     Usuarios user_obj = new Usuarios(name,email);
 
