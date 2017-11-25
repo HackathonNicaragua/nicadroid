@@ -11,10 +11,10 @@ import java.util.List;
  public class addPreguntas {
     public ArrayList<structPreguntas> listaPreguntas = new ArrayList<>();
 
-    public void addquest(int idpreg,int idarea,String preg){
+    public void addquest(int idpreg,int idcat,String preg){
         structPreguntas sp = new structPreguntas();
         sp.getidpreg(idpreg);
-        sp.getidcategoria(idarea);
+        sp.getidcategoria(idcat);
         sp.getpregunta(preg);
         listaPreguntas.add(sp);
     }
