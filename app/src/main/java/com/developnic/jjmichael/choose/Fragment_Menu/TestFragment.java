@@ -78,9 +78,32 @@ public class TestFragment extends android.support.v4.app.Fragment {
             if (idp > ultima) ultima = idp;
             if(ultima ==39){
                 sig.setText("finalizar");
-
+                sig.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        conteo(v);
+                    }
+                });
             }
         }
+    }
+    void conteo(View v){
+        for(int x = 1;x<=40;x++){
+            seguimiento s = new seguimiento();
+            s = seguimientos.get(x);
+            if(s.cat == 1)resultados.get(0).setPuntaje(resultados.get(0).idcat+s.siono);
+            if(s.cat == 2)resultados.get(1).setPuntaje(resultados.get(1).idcat+s.siono);
+            if(s.cat == 3)resultados.get(2).setPuntaje(resultados.get(2).idcat+s.siono);
+            if(s.cat == 4)resultados.get(3).setPuntaje(resultados.get(3).idcat+s.siono);
+            if(s.cat == 5)resultados.get(4).setPuntaje(resultados.get(4).idcat+s.siono);
+
+        }
+        preg.setText(resultados.get(0).nombre+": "+resultados.get(0).puntaje+"\n"+
+                resultados.get(1).nombre+": "+resultados.get(1).puntaje+"\n"+
+                resultados.get(2).nombre+": "+resultados.get(2).puntaje+"\n"+
+                resultados.get(3).nombre+": "+resultados.get(3).puntaje+"\n"+
+                resultados.get(4).nombre+": "+resultados.get(4).puntaje+"\n"
+        );
     }
     void atras_click(View v){
         if(si.isChecked()||no.isChecked())if(idp>0){
