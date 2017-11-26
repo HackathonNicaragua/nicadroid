@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity  implements  GoogleApiClien
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         Iniciar();
         AutenticarGoogle();
         AutenticarFacebook();

@@ -1,5 +1,6 @@
 package com.developnic.jjmichael.choose.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.developnic.jjmichael.choose.DetallePorCarrera.DetalleCarrera;
 import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.R;
 
@@ -85,7 +87,7 @@ public class AdapterCarreras extends RecyclerView.Adapter<AdapterCarreras.ViewHo
 
     @Override
     public void onItemClick (View view ,int position){
-      //  DetalleCarreras.createInstance( (Activity) context , items.get(position));
+      DetalleCarrera.createInstance( (Activity) context , items.get(position));
 
     }
 }
