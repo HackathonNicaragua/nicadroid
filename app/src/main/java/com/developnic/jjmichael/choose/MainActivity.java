@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,7 +20,6 @@ import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsInicio;
 import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsUniver;
 import com.developnic.jjmichael.choose.Fragments_Menu.PerfilFragment;
 import com.developnic.jjmichael.choose.Fragments_Menu.TestFragment;
-import com.developnic.jjmichael.choose.Fragments_Menu.inicio;
 import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.POJO.Usuarios;
 import com.facebook.login.LoginManager;
@@ -137,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 switch (item.getItemId())
                 {
                     case R.id.home_page_id:
-                        fragmentTemp = new inicio();
+                        fragmentTemp = new FragmentsInicio();
                         break;
                     case R.id.uni_page_id:
                         fragmentTemp = new FragmentsUniver();

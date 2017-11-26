@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.developnic.jjmichael.choose.R;
@@ -18,6 +18,7 @@ public class TestFragment extends android.support.v4.app.Fragment {
     public ArrayList<seguimiento>seguimientos = new ArrayList<>();
     public ArrayList<structResultados>resultados = new ArrayList<>();
     Button si,no,atras,sig;
+    ImageView SI_OP , NO_OP ,RESULT;
     TextView preg;
     int idp = 0;
     public int ultima=0;
@@ -33,22 +34,28 @@ public class TestFragment extends android.support.v4.app.Fragment {
         View vista = inflater.inflate(R.layout.fragment_test, container, false);
         todoslosres();
 
-        si = vista.findViewById(R.id.si);
-        no = vista.findViewById(R.id.no);
         preg = vista.findViewById(R.id.preg);
+
+        SI_OP = vista.findViewById(R.id.si_op);
+        NO_OP = vista.findViewById(R.id.no_op);
+        RESULT = vista.findViewById(R.id.resultado_id);
+
+        SI_OP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                si_click(view);
+            }
+        });
+
+        NO_OP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                no_click(view);
+            }
+        });
+
         preg.setText(preguntas.get(ultima).idpreg+": "+preguntas.get(ultima).pregunta);
-        si.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                si_click(v);
-            }
-        });
-        no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                no_click(v);
-            }
-        });
+
         return vista;
     }
 
@@ -58,13 +65,18 @@ public class TestFragment extends android.support.v4.app.Fragment {
         if(idp>ultima)ultima = idp;
         preg.setText(preguntas.get(ultima).idpreg+": "+preguntas.get(ultima).pregunta);
         if(ultima==39){
-            si.setText("Finalizar");
-            si.setOnClickListener(new View.OnClickListener() {
+
+            SI_OP.setVisibility(View.GONE);
+            NO_OP.setVisibility(View.GONE);
+            RESULT.setVisibility(View.VISIBLE);
+
+            RESULT.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    cuenta(v);
+                public void onClick(View view) {
+                    cuenta(view);
                 }
             });
+
         }
     }
 
@@ -74,11 +86,14 @@ public class TestFragment extends android.support.v4.app.Fragment {
         if(idp>ultima)ultima = idp;
         preg.setText(preguntas.get(ultima).idpreg+": "+preguntas.get(ultima).pregunta);
         if(ultima==39){
-            si.setText("Finalizar");
-            si.setOnClickListener(new View.OnClickListener() {
+            SI_OP.setVisibility(View.GONE);
+            NO_OP.setVisibility(View.GONE);
+            RESULT.setVisibility(View.VISIBLE);
+
+            RESULT.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    cuenta(v);
+                public void onClick(View view) {
+                    cuenta(view);
                 }
             });
         }

@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.developnic.jjmichael.choose.Adapters.AdapterComentario;
 import com.developnic.jjmichael.choose.POJO.Conexiones;
@@ -87,7 +86,7 @@ public class FragmentsComentarios extends android.support.v4.app.Fragment {
                 if(m.getType_mensaje().equals(Conexiones.carreras.getId_carreras())) {
                     adapter.addMensaje(m);
                 }
-                Toast.makeText(getActivity(), "TAMAÑO COMENTARIOS" + m.getNombre(), Toast.LENGTH_SHORT).show();
+
             }
 
             @Override

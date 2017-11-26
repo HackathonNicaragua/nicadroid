@@ -62,12 +62,11 @@ public class CarrerasFragments extends Fragment {
         if(savedInstanceState == null){mHorizontal = true;}
         else {mHorizontal = savedInstanceState.getBoolean(ORIENTATION);}
 
-        snapAdapter = new AdapterCategoriasCar(getActivity());
 
+        snapAdapter = new AdapterCategoriasCar(getActivity());
         setupAdapter();
 
         reciclador.setAdapter(snapAdapter);
-
 
         return view;
     }
@@ -93,10 +92,9 @@ public class CarrerasFragments extends Fragment {
                 MetodoAdaptarCategorias(Carreras.LIST_TEC);
                 break;
             case  2:
-                MetodoAdaptarCategorias(Carreras.LIST_CAR);
+                MetodoAdaptarCategorias(Carreras.LIS_LINEA);
                 break;
         }
-
     }
 
     public void MetodoAdaptarCategorias(List<Carreras> TIPO_CAR ){
@@ -162,6 +160,8 @@ public class CarrerasFragments extends Fragment {
 
             if(Tipo.equals("carrera")){
                 Carreras.LIST_CAR = simple;
+            } else if(Tipo.equals("linea")) {
+                Carreras.LIS_LINEA = simple;
             }
             else {
                 Carreras.LIST_TEC = simple;

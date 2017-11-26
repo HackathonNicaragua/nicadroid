@@ -28,6 +28,7 @@ public class Carreras {
     public static List<Carreras> LIST_TEC = new ArrayList<>();
     public static List<Carreras> LIST_CAR = new ArrayList<Carreras>();
     public static List<Carreras> PASAR_LISTA = new ArrayList<>();
+    public static List<Carreras> LIS_LINEA = new ArrayList<>();
 
 
     public Carreras() {
