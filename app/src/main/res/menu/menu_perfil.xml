@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/LayoutType"
-        android:title="Vertical"
+        android:title="Cerrar Sesion"
         app:showAsAction="never"></item>
 
 </menu>
