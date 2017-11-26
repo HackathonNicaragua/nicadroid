@@ -1,6 +1,8 @@
 package com.developnic.jjmichael.choose.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,11 +29,11 @@ public class AdapterUni extends RecyclerView.Adapter<AdapterUni.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
         // Referencias UI
-        public TextView viewNombre;
+        public TextView viewNombre,txtu;
         public TextView viewUbicacion;
         public TextView viewDescripcion;
         public TextView viewPrecio;
-        public ImageView viewFoto;
+        public ImageView viewFoto,imgu;
         public  CardView cardview;
 
         public ViewHolder(View v) {
@@ -43,6 +45,8 @@ public class AdapterUni extends RecyclerView.Adapter<AdapterUni.ViewHolder> {
             viewPrecio = (TextView) v.findViewById(R.id.precio);
             viewFoto = (ImageView) v.findViewById(R.id.foto);
             cardview = (CardView) itemView.findViewById(R.id.cardview);
+            txtu = v.findViewById(R.id.ubicacion);
+            imgu = v.findViewById(R.id.imageu);
             v.setOnClickListener(this);
         }
 
@@ -79,12 +83,13 @@ public class AdapterUni extends RecyclerView.Adapter<AdapterUni.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
 
         holder.viewNombre.setText(items.get(position).getSigla());
         holder.viewUbicacion.setText(items.get(position).getSigla());
         holder.viewDescripcion.setText(items.get(position).getNombre());
         holder.viewPrecio.setText(items.get(position).getNombre());
+
 
 
         Glide.with(contexto).load(items.get(position).getImg()).centerCrop().into(holder.viewFoto);
