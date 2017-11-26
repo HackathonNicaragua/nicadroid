@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsCategorias;
+import com.developnic.jjmichael.choose.Fragments_Menu.TestFragment;
 import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.POJO.Usuarios;
 import com.facebook.login.LoginManager;
@@ -138,6 +139,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         break;
                     case  R.id.perfil_page_id:
                        // fragmentTemp = new PerfilFragment();
+                        break;
+                    case R.id.test_page_id:
+                        fragmentTemp = new TestFragment();
                         break;
                 }
 
