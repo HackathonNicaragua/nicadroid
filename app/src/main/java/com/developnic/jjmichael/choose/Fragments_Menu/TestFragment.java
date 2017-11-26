@@ -17,7 +17,7 @@ public class TestFragment extends android.support.v4.app.Fragment {
     public ArrayList<structPreguntas> preguntas = ap.listaPreguntas;
     public ArrayList<seguimiento>seguimientos = new ArrayList<>();
     public ArrayList<structResultados>resultados = new ArrayList<>();
-    Button si,no,atras,sig;
+    Button atras,sig;
     ImageView SI_OP , NO_OP ,RESULT;
     TextView preg;
     int idp = 0;
@@ -33,7 +33,6 @@ public class TestFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_test, container, false);
         todoslosres();
-
         preg = vista.findViewById(R.id.preg);
 
         SI_OP = vista.findViewById(R.id.si_op);
@@ -46,6 +45,7 @@ public class TestFragment extends android.support.v4.app.Fragment {
                 si_click(view);
             }
         });
+
 
         NO_OP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,8 +92,8 @@ public class TestFragment extends android.support.v4.app.Fragment {
 
             RESULT.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    cuenta(view);
+                public void onClick(View v) {
+                    cuenta(v);
                 }
             });
         }
@@ -130,8 +130,6 @@ public class TestFragment extends android.support.v4.app.Fragment {
         if(resultados.get(2).puntaje == may)preg.append(resultados.get(2).nombre+",");
         if(resultados.get(3).puntaje == may)preg.append(resultados.get(3).nombre+",");
         if(resultados.get(4).puntaje == may)preg.append(resultados.get(4).nombre+",");
-
-        no.setVisibility(View.INVISIBLE);
     }
 
     void alSeguimiento(int idpre,int cat,int sino){
