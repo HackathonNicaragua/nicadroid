@@ -67,6 +67,8 @@ public class CarrerasFragments extends Fragment {
         setupAdapter();
 
         reciclador.setAdapter(snapAdapter);
+
+
         return view;
     }
 

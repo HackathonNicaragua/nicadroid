@@ -95,7 +95,7 @@ public class Adapter_Utilidad extends RecyclerView.Adapter<Adapter_Utilidad.View
         viewHolder.tv_grado.setText(item.getFuentes());
 
         viewHolder.circleImageView1.setImageResource(R.drawable.duracion);
-        viewHolder.circleImageView2.setImageResource(R.drawable.modalidad);
+        viewHolder.circleImageView2.setImageResource(R.drawable.modallidades);
         viewHolder.circleImageView3.setImageResource(R.drawable.turno);
     }
 

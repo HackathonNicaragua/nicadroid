@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsCategorias;
+import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsInicio;
 import com.developnic.jjmichael.choose.Fragments_Menu.TestFragment;
 import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.POJO.Usuarios;
@@ -47,14 +48,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         setContentView(R.layout.activity_main);
 
         setToolbar();
-        //inicio_fragment();
+        inicio_fragment();
         Autenticacion();
         GETCONECTION();
         OptenerListaCompleta();
         Nav_menu();
 
     }
-
 
 
     private void OptenerListaCompleta() {
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void inicio_fragment() {
         Fragment fragmentTemp = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
-      // fragmentTemp = new UniverFragment();
+        fragmentTemp = new FragmentsInicio();
         fragmentManager.beginTransaction().replace(R.id.contenedor_pricipal, fragmentTemp).commit();
     }
 
@@ -133,9 +133,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 switch (item.getItemId())
                 {
                     case R.id.home_page_id:
-
+                        fragmentTemp = new FragmentsInicio();
                         break;
-
                     case R.id.car_page_id:
                         fragmentTemp = new FragmentsCategorias();
                         break;
