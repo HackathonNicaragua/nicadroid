@@ -80,6 +80,11 @@ public class FragmentsCategorias  extends Fragment{
         // inflater.inflate(R.menu.menu_perfil, menu);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        appBarLayout.removeView(tabLayout);
+    }
 
 
     public class AdaptadorSecciones extends FragmentStatePagerAdapter {
