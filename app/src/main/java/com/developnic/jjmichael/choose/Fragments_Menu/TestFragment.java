@@ -1,4 +1,4 @@
-package com.developnic.jjmichael.choose.Fragment_Menu;
+package com.developnic.jjmichael.choose.Fragments_Menu;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.developnic.jjmichael.choose.MainActivity;
 import com.developnic.jjmichael.choose.R;
 
 import java.util.ArrayList;
@@ -71,11 +70,22 @@ public class TestFragment extends android.support.v4.app.Fragment {
     }
     void sig_click(View v){
         if(si.isChecked()||no.isChecked())if(idp<40) {
-            idp++;
 
             structPreguntas sp = preguntas.get(idp);
             preg.setText(sp.idpreg + ". " + sp.pregunta);
-            if (idp > ultima) ultima = idp;
+
+            if(seguimientos.size()<ultima){
+                if(seguimientos.get(idp).check == true)si.setChecked(true);
+                else no.setChecked(true);
+            }else if(seguimientos.size()==ultima){
+                if(si.isChecked()){
+                    alSeguimiento(idp,preguntas.get(idp).idcategoria,1,true,true);
+                }else{
+                    alSeguimiento(idp,preguntas.get(idp).idcategoria,0,false,true);
+                }
+            }else if(seguimientos.size()>ultima){
+
+            }
             if(ultima ==39){
                 sig.setText("finalizar");
                 sig.setOnClickListener(new View.OnClickListener() {
@@ -86,16 +96,20 @@ public class TestFragment extends android.support.v4.app.Fragment {
                 });
             }
         }
+        idp++;
+        if (idp > ultima) {
+            ultima = idp;
+        }
     }
     void conteo(View v){
-        for(int x = 1;x<=40;x++){
-            seguimiento s = new seguimiento();
-            s = seguimientos.get(x);
-            if(s.cat == 1)resultados.get(0).setPuntaje(resultados.get(0).idcat+s.siono);
-            if(s.cat == 2)resultados.get(1).setPuntaje(resultados.get(1).idcat+s.siono);
-            if(s.cat == 3)resultados.get(2).setPuntaje(resultados.get(2).idcat+s.siono);
-            if(s.cat == 4)resultados.get(3).setPuntaje(resultados.get(3).idcat+s.siono);
-            if(s.cat == 5)resultados.get(4).setPuntaje(resultados.get(4).idcat+s.siono);
+        for(int x = 0;x<40;x++){
+            seguimiento seg = new seguimiento();
+            seg = seguimientos.get(x);
+            if(seg.cat == 1)resultados.get(0).setPuntaje(resultados.get(0).idcat+seg.siono);
+            if(seg.cat == 2)resultados.get(1).setPuntaje(resultados.get(1).idcat+seg.siono);
+            if(seg.cat == 3)resultados.get(2).setPuntaje(resultados.get(2).idcat+seg.siono);
+            if(seg.cat == 4)resultados.get(3).setPuntaje(resultados.get(3).idcat+seg.siono);
+            if(seg.cat == 5)resultados.get(4).setPuntaje(resultados.get(4).idcat+seg.siono);
 
         }
         preg.setText(resultados.get(0).nombre+": "+resultados.get(0).puntaje+"\n"+
@@ -105,25 +119,32 @@ public class TestFragment extends android.support.v4.app.Fragment {
                 resultados.get(4).nombre+": "+resultados.get(4).puntaje+"\n"
         );
     }
+
     void atras_click(View v){
-        if(si.isChecked()||no.isChecked())if(idp>0){
+        if(idp>0){
             idp--;
             structPreguntas sp= preguntas.get(idp);
             preg.setText(sp.idpreg+". "+sp.pregunta);
+            if(seguimientos.get(idp).check == true){
+                si.setChecked(true);
+                seguimientos.get(idp).setSiono(1);
+            }
+            else {
+                no.setChecked(true);
+                seguimientos.get(idp).setSiono(0);
+            }
         }
     }
     void option_click(View v){
-        if(si.isChecked()){
-            alSeguimiento(idp,preguntas.get(idp).idcategoria,1);
-        }else{
-            alSeguimiento(idp,preguntas.get(idp).idcategoria,0);
-        }
+
     }
-    void alSeguimiento(int idpre,int cat,int sino){
+    void alSeguimiento(int idpre,int cat,int sino,boolean ck,boolean ya){
         seguimiento s = new seguimiento();
         s.setCat(cat);
         s.setIdp(idpre);
         s.setSiono(sino);
+        s.setCheck(ck);
+        s.setYa(ya);
         seguimientos.add(s);
     }
     void todoslosres(){
@@ -147,6 +168,7 @@ public class TestFragment extends android.support.v4.app.Fragment {
 }
 class seguimiento{
     int idp,siono,cat;
+    boolean check,ya = false;
     void setIdp(int id ){
         idp=id;
     }
@@ -156,7 +178,8 @@ class seguimiento{
     void setSiono(int id ){
         siono=id;
     }
-
+    void setCheck(boolean tr){check = tr;}
+    void setYa(boolean ya){this.ya = ya;}
 }
 class structResultados{
     int idcat,puntaje;

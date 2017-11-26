@@ -1,8 +1,6 @@
-package com.developnic.jjmichael.choose.Fragment_Menu;
+package com.developnic.jjmichael.choose.Fragments_Menu;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by rafael on 11-25-17.

@@ -12,11 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.developnic.jjmichael.choose.Fragment_Menu.TestFragment;
+import com.developnic.jjmichael.choose.Fragments_Menu.TestFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         break;
                     case R.id.test_page_id:
                         fragmentTemp = new TestFragment();
-
 
 
                         break;
