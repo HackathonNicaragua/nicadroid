@@ -219,8 +219,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         return super.onOptionsItemSelected(item);
     }
 
-
-
     private void cerrar_sesion() {
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
