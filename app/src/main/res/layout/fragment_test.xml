@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:lines="3"
+            android:lines="5"
             android:ems="10"
             android:inputType="textMultiLine"
             android:padding="20dp"
@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
-
             >
 
             <ImageView
