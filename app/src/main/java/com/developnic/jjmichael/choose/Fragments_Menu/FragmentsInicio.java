@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.developnic.jjmichael.choose.Noticias.Tab_Noticas;
+import com.developnic.jjmichael.choose.Noticias.Tab_Tendencias;
 import com.developnic.jjmichael.choose.R;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class FragmentsInicio extends Fragment{
     private void poblarViewPager(ViewPager viewPager) {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());
         adapter.addFragment(Tab_Noticas.nuevaInstancia(0), "Noticias");
-        adapter.addFragment(Tab_Noticas.nuevaInstancia(1),"Tendencias" );
+        adapter.addFragment(Tab_Tendencias.nuevaInstancia(0),"Tendencias" );
         viewPager.setAdapter(adapter);
     }
 
