@@ -17,8 +17,7 @@ public class TestFragment extends android.support.v4.app.Fragment {
     public ArrayList<structPreguntas> preguntas = ap.listaPreguntas;
     public ArrayList<seguimiento>seguimientos = new ArrayList<>();
     public ArrayList<structResultados>resultados = new ArrayList<>();
-    RadioButton si,no;
-    Button atras,sig;
+    Button si,no,atras,sig;
     TextView preg;
     int idp = 0;
     public int ultima=0;
@@ -33,120 +32,85 @@ public class TestFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_test, container, false);
         todoslosres();
+
         si = vista.findViewById(R.id.si);
         no = vista.findViewById(R.id.no);
-        atras = vista.findViewById(R.id.atras);
-        sig = vista.findViewById(R.id.sig);
         preg = vista.findViewById(R.id.preg);
-
-        structPreguntas sp= preguntas.get(ultima);
-        preg.setText(sp.idpreg+". "+sp.pregunta);
-
+        preg.setText(preguntas.get(ultima).idpreg+": "+preguntas.get(ultima).pregunta);
         si.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                option_click(v);
+                si_click(v);
             }
         });
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                option_click(v);
-            }
-        });
-        sig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sig_click(v);
-            }
-        });
-        atras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                atras_click(v);
+                no_click(v);
             }
         });
         return vista;
     }
-    void sig_click(View v){
-        if(si.isChecked()||no.isChecked())if(idp<40) {
 
-            structPreguntas sp = preguntas.get(idp);
-            preg.setText(sp.idpreg + ". " + sp.pregunta);
-
-            if(seguimientos.size()<ultima){
-                if(seguimientos.get(idp).check == true)si.setChecked(true);
-                else no.setChecked(true);
-            }else if(seguimientos.size()==ultima){
-                if(si.isChecked()){
-                    alSeguimiento(idp,preguntas.get(idp).idcategoria,1,true,true);
-                }else{
-                    alSeguimiento(idp,preguntas.get(idp).idcategoria,0,false,true);
-                }
-            }else if(seguimientos.size()>ultima){
-
-            }
-            if(ultima ==39){
-                sig.setText("finalizar");
-                sig.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        conteo(v);
-                    }
-                });
-            }
-        }
+    private void no_click(View v) {
+        alSeguimiento(idp,preguntas.get(idp).idcategoria,0);
         idp++;
-        if (idp > ultima) {
-            ultima = idp;
+        if(idp>ultima)ultima = idp;
+        preg.setText(preguntas.get(ultima).pregunta);
+        if(ultima==39){
+            no.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cuenta(v);
+                }
+            });
         }
     }
-    void conteo(View v){
-        for(int x = 0;x<40;x++){
-            seguimiento seg = new seguimiento();
-            seg = seguimientos.get(x);
-            if(seg.cat == 1)resultados.get(0).setPuntaje(resultados.get(0).idcat+seg.siono);
-            if(seg.cat == 2)resultados.get(1).setPuntaje(resultados.get(1).idcat+seg.siono);
-            if(seg.cat == 3)resultados.get(2).setPuntaje(resultados.get(2).idcat+seg.siono);
-            if(seg.cat == 4)resultados.get(3).setPuntaje(resultados.get(3).idcat+seg.siono);
-            if(seg.cat == 5)resultados.get(4).setPuntaje(resultados.get(4).idcat+seg.siono);
 
-        }
-        preg.setText(resultados.get(0).nombre+": "+resultados.get(0).puntaje+"\n"+
-                resultados.get(1).nombre+": "+resultados.get(1).puntaje+"\n"+
-                resultados.get(2).nombre+": "+resultados.get(2).puntaje+"\n"+
-                resultados.get(3).nombre+": "+resultados.get(3).puntaje+"\n"+
-                resultados.get(4).nombre+": "+resultados.get(4).puntaje+"\n"
-        );
-    }
-
-    void atras_click(View v){
-        if(idp>0){
-            idp--;
-            structPreguntas sp= preguntas.get(idp);
-            preg.setText(sp.idpreg+". "+sp.pregunta);
-            if(seguimientos.get(idp).check == true){
-                si.setChecked(true);
-                seguimientos.get(idp).setSiono(1);
-            }
-            else {
-                no.setChecked(true);
-                seguimientos.get(idp).setSiono(0);
-            }
+    private void si_click(View v) {
+        alSeguimiento(idp,preguntas.get(idp).idcategoria,1);
+        idp++;
+        if(idp>ultima)ultima = idp;
+        preg.setText(preguntas.get(ultima).idpreg+": "+preguntas.get(ultima).pregunta);
+        if(ultima==39){
+            si.setText("Finalizar");
+            si.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cuenta(v);
+                }
+            });
         }
     }
-    void option_click(View v){
 
+    private void cuenta(View v) {
+        for(int x = 0;x<39;x++) {
+            if (seguimientos.get(x).cat == 1)
+                resultados.get(0).setPuntaje(seguimientos.get(x).siono + resultados.get(0).puntaje);
+            if (seguimientos.get(x).cat == 2)
+                resultados.get(1).setPuntaje(seguimientos.get(x).siono + resultados.get(1).puntaje);
+            if (seguimientos.get(x).cat == 3)
+                resultados.get(2).setPuntaje(seguimientos.get(x).siono + resultados.get(2).puntaje);
+            if (seguimientos.get(x).cat == 4)
+                resultados.get(3).setPuntaje(seguimientos.get(x).siono + resultados.get(3).puntaje);
+            if (seguimientos.get(x).cat == 5)
+                resultados.get(4).setPuntaje(seguimientos.get(x).siono + resultados.get(4).puntaje);
+        }
+        preg.setText(resultados.get(0).puntaje+","
+                +resultados.get(1).puntaje+","
+                +resultados.get(2).puntaje+","
+                +resultados.get(3).puntaje+","
+                +resultados.get(4).puntaje+",");
     }
-    void alSeguimiento(int idpre,int cat,int sino,boolean ck,boolean ya){
+
+    void alSeguimiento(int idpre,int cat,int sino){
         seguimiento s = new seguimiento();
         s.setCat(cat);
         s.setIdp(idpre);
         s.setSiono(sino);
-        s.setCheck(ck);
-        s.setYa(ya);
         seguimientos.add(s);
     }
+
     void todoslosres(){
         structResultados c1,c2,c3,c4,c5;
         c1 = new structResultados();
@@ -168,7 +132,6 @@ public class TestFragment extends android.support.v4.app.Fragment {
 }
 class seguimiento{
     int idp,siono,cat;
-    boolean check,ya = false;
     void setIdp(int id ){
         idp=id;
     }
@@ -178,8 +141,7 @@ class seguimiento{
     void setSiono(int id ){
         siono=id;
     }
-    void setCheck(boolean tr){check = tr;}
-    void setYa(boolean ya){this.ya = ya;}
+
 }
 class structResultados{
     int idcat,puntaje;

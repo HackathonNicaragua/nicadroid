@@ -8,45 +8,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/preg"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
 
-        <RadioGroup
-            android:layout_width="60dp"
-            android:layout_height="40dp" >
-
-            <RadioButton
-                android:id="@+id/si"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Si" />
-
-            <RadioButton
-                android:id="@+id/no"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="false"
-                android:text="No" />
-        </RadioGroup>
+        <Button
+            android:id="@+id/si"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Si" />
 
         <Button
+            android:id="@+id/no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No" />
+
+        <!--Button
             android:id="@+id/atras"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Atras" />
+            android:text="Anterior" />
+
         <Button
-            android:id="@+id/sig"
-            android:layout_width="wrap_content"
+            android:id="@+id/adelante"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next" />
+            android:text="Siguiente" /-->
 
     </LinearLayout>
 </FrameLayout>
