@@ -56,9 +56,10 @@ public class TestFragment extends android.support.v4.app.Fragment {
         alSeguimiento(idp,preguntas.get(idp).idcategoria,0);
         idp++;
         if(idp>ultima)ultima = idp;
-        preg.setText(preguntas.get(ultima).pregunta);
+        preg.setText(preguntas.get(ultima).idpreg+": "+preguntas.get(ultima).pregunta);
         if(ultima==39){
-            no.setOnClickListener(new View.OnClickListener() {
+            si.setText("Finalizar");
+            si.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     cuenta(v);
@@ -96,11 +97,26 @@ public class TestFragment extends android.support.v4.app.Fragment {
             if (seguimientos.get(x).cat == 5)
                 resultados.get(4).setPuntaje(seguimientos.get(x).siono + resultados.get(4).puntaje);
         }
-        preg.setText(resultados.get(0).puntaje+","
-                +resultados.get(1).puntaje+","
-                +resultados.get(2).puntaje+","
-                +resultados.get(3).puntaje+","
-                +resultados.get(4).puntaje+",");
+        preg.setText("");
+        int r1,r2,r3,r4,r5;
+        r1 = resultados.get(0).puntaje;
+        r2 = resultados.get(1).puntaje;
+        r3 = resultados.get(2).puntaje;
+        r4 = resultados.get(3).puntaje;
+        r5 = resultados.get(4).puntaje;
+        int may = 0;
+        if(r1>may)may = r1;
+        if(r2>may)may = r2;
+        if(r3>may)may = r3;
+        if(r4>may)may = r4;
+        if(r5>may)may = r5;
+        if(resultados.get(0).puntaje == may)preg.append(resultados.get(0).nombre+",");
+        if(resultados.get(1).puntaje == may)preg.append(resultados.get(1).nombre+",");
+        if(resultados.get(2).puntaje == may)preg.append(resultados.get(2).nombre+",");
+        if(resultados.get(3).puntaje == may)preg.append(resultados.get(3).nombre+",");
+        if(resultados.get(4).puntaje == may)preg.append(resultados.get(4).nombre+",");
+
+        no.setVisibility(View.INVISIBLE);
     }
 
     void alSeguimiento(int idpre,int cat,int sino){
