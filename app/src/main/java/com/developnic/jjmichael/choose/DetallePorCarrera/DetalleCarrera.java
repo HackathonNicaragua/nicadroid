@@ -81,6 +81,8 @@ public class DetalleCarrera extends AppCompatActivity {
 
     }
 
+
+
     private void TabLayoutIcon() {
 
         int[] tabIcons = {

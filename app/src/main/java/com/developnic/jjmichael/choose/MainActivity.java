@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsCategorias;
 import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsInicio;
+import com.developnic.jjmichael.choose.Fragments_Menu.FragmentsUniver;
+import com.developnic.jjmichael.choose.Fragments_Menu.PerfilFragment;
 import com.developnic.jjmichael.choose.Fragments_Menu.TestFragment;
 import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.POJO.Usuarios;
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     Carreras.LIST_COMPLETA.add(car);
                 }
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this, "id" + Carreras.LIST_COMPLETA.get(0).getOfrecen(), Toast.LENGTH_SHORT).show();
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -135,11 +137,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     case R.id.home_page_id:
                         fragmentTemp = new FragmentsInicio();
                         break;
+                    case R.id.uni_page_id:
+                        fragmentTemp = new FragmentsUniver();
+                        break;
                     case R.id.car_page_id:
                         fragmentTemp = new FragmentsCategorias();
                         break;
                     case  R.id.perfil_page_id:
-                       // fragmentTemp = new PerfilFragment();
+                       fragmentTemp = new PerfilFragment();
                         break;
                     case R.id.test_page_id:
                         fragmentTemp = new TestFragment();
@@ -173,6 +178,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     String uid = user.getUid();
 
                     Usuarios user_obj = new Usuarios(name,email);
+                    Usuarios.USER.setNombre_user(user_obj.getNombre_user());
+                    Usuarios.USER.setCorreo_user(user_obj.getCorreo_user());
 
                    DatabaseReference firebaseDatabase =  FirebaseDatabase.getInstance().getReference();
 
@@ -183,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 }
             }
         };
-
 
         GoogleSignInOptions gson = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -229,7 +235,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-
 
     @Override
     protected void onStart() {

@@ -32,6 +32,25 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.developnic.jjmichael.choose.MainActivity" />
         </activity>
+
+        <activity
+            android:name=".DetallePorCarrera.Grid_Detalle"
+            android:label="GRID"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.developnic.jjmichael.choose.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".DetallePorCarrera.InfoPerfil"
+            android:label="Perfil"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.developnic.jjmichael.choose.MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

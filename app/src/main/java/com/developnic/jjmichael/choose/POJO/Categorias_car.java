@@ -13,7 +13,7 @@ public class Categorias_car {
     private String nombre_catg;
     private List<Carreras> carreras;
 
-    public static final List<String> Categorias = new ArrayList();
+
     public static final List<String> Tipo = new ArrayList<>();
 
     public Categorias_car()

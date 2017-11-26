@@ -1,6 +1,7 @@
 package com.developnic.jjmichael.choose.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.PagerSnapHelper;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.developnic.jjmichael.choose.DetallePorCarrera.Grid_Detalle;
 import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.POJO.Categorias_car;
 import com.developnic.jjmichael.choose.R;
@@ -102,8 +104,8 @@ public class AdapterCategoriasCar extends RecyclerView.Adapter<AdapterCategorias
     public void onItemClick(View view, int position) {
         Carreras.PASAR_LISTA = CategoriasCar.get(position).getCarreras();
         Toast.makeText(context, "MAS..." + CategoriasCar.get(position).getCarreras().size(), Toast.LENGTH_SHORT).show();
-       // Intent intent = new Intent(context, Grid_Detalle.class);
-        //context.startActivity(intent);
+        Intent intent = new Intent(context, Grid_Detalle.class);
+        context.startActivity(intent);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
