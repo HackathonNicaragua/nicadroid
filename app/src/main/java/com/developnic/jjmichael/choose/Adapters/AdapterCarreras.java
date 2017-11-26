@@ -79,7 +79,6 @@ public class AdapterCarreras extends RecyclerView.Adapter<AdapterCarreras.ViewHo
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Carreras item = items.get(i);
 
-
         Glide.with(context).load(items.get(i).getIcono()).centerCrop().into(viewHolder.imageView);
         viewHolder.nameTextView.setText(item.getNombre());
         viewHolder.ratingTextView.setText(item.getRanking());

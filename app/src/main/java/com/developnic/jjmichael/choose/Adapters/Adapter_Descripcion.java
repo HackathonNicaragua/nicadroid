@@ -11,8 +11,6 @@ import android.widget.Toast;
 import com.developnic.jjmichael.choose.POJO.Carreras;
 import com.developnic.jjmichael.choose.R;
 
-import java.util.List;
-
 /**
  * Created by jjmic on 25/11/2017.
  */
@@ -22,7 +20,7 @@ public class Adapter_Descripcion extends RecyclerView.Adapter<Adapter_Descripcio
     private Context context;
     private Carreras item;
 
-    public Adapter_Descripcion( Carreras carreras, Context context) {
+    public Adapter_Descripcion(  Context context ,Carreras carreras) {
 
         item = carreras;
         this.context = context;
@@ -59,14 +57,6 @@ public class Adapter_Descripcion extends RecyclerView.Adapter<Adapter_Descripcio
         public void onClick(View view) {
             listener.onItemClick(view,getAdapterPosition());
         }
-    }
-
-    public Adapter_Descripcion(ViewHolder viewHolder, List<Carreras> carrerasPopulares) {
-    }
-
-    public Adapter_Descripcion ( Context context, Carreras items){
-        this.context = context;
-        this.item = items;
     }
 
 

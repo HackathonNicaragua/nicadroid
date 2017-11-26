@@ -21,7 +21,7 @@ public class Carreras {
     private String grados;
     private String turno;
     private String duracion;
-    private String ofrece;
+    private String ofrecen;
 
 
     public static final List<Carreras> LIST_COMPLETA = new ArrayList<Carreras>();
@@ -171,11 +171,11 @@ public class Carreras {
         this.duracion = duracion;
     }
 
-    public String getOfrece() {
-        return ofrece;
+    public String getOfrecen() {
+        return ofrecen;
     }
 
-    public void setOfrece(String ofrece) {
-        this.ofrece = ofrece;
+    public void setOfrecen(String ofrecen) {
+        this.ofrecen = ofrecen;
     }
 }

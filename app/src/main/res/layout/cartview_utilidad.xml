@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        >
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_nombre_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardBackgroundColor="#37474F"
+            >
+            <LinearLayout
+                style="@style/Widget.CardContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Grado a Optener "
+                    android:textColor="@color/divider"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/grado_carrera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFF"
+                        android:text="@string/girl_ipsum"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:background="@color/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/icono_util_turno"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/turno"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/turno_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Turno:  "
+                        android:textColor="@color/divider"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/turno_carrera"
+                        android:labelFor="@+id/turno_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="diario-sabatino"
+                        android:textColor="#FFF"
+                        android:textSize="18sp"
+                        android:gravity=""
+                        />
+                </LinearLayout>
+
+
+                <View
+                    android:background="@color/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/icono_util_duracion"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/duracion"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/label_duracion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Duracion:  "
+                        android:textColor="@color/divider"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                    <TextView
+                        android:labelFor="@+id/label_duracion"
+                        android:id="@+id/duracion_carrera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFF"
+                        android:text="duraciones en anios"
+                        android:layout_margin="5dp"
+                        android:textSize="17sp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <View
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1.2dp"
+            />
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cart_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardBackgroundColor="#37474F"
+            >
+
+            <LinearLayout
+                style="@style/Widget.CardContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal|center_vertical|top"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/icono_util_modalidad"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/modallidades"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/label_model"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Modalidad:"
+                        android:textColor="@color/divider"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                    <TextView
+                        android:labelFor="@+id/label_model"
+                        android:id="@+id/modalidad_carrera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFF"
+                        android:text="modalidades"
+                        android:layout_margin="5dp"
+                        android:textSize="17sp"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:background="@color/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="¿Quien la ofrece?"
+                    android:textColor="#FFF"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                <TextView
+                    android:id="@+id/ofrecen_carrera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:text="@string/girl_ipsum"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</ScrollView>

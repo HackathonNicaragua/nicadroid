@@ -52,7 +52,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         GETCONECTION();
         OptenerListaCompleta();
         Nav_menu();
+
     }
+
+
 
     private void OptenerListaCompleta() {
 
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     Carreras.LIST_COMPLETA.add(car);
                 }
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this, "id" + Carreras.LIST_COMPLETA.get(0).getId_carreras(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "id" + Carreras.LIST_COMPLETA.get(0).getOfrecen(), Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -80,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         });
     }
-
 
 
     private void GETCONECTION() {
@@ -183,7 +185,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         };
 
-        //google
 
         GoogleSignInOptions gson = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -211,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                 break;
             case R.id.LayoutType:
-
+                    cerrar_sesion();
                 break;
         }
 
