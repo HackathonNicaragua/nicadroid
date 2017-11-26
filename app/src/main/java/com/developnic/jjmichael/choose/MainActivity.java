@@ -93,11 +93,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 boolean connected = snapshot.getValue(Boolean.class);
-                if (connected) {
-                    Toast.makeText(MainActivity.this, "Conectado", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "No hay Conexion", Toast.LENGTH_SHORT).show();
-                }
             }
 
             @Override
